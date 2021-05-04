@@ -3,6 +3,29 @@ import mapboxgl from "mapbox-gl"
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
+export const layers = {
+    sky: {
+        id: "sky",
+        type: "sky",
+        paint: {
+            "sky-type": "atmosphere",
+            "sky-atmosphere-sun": [0.0, 90.0],
+            "sky-atmosphere-sun-intensity": 15,
+        },
+    },
+    hillshade: {
+        id: "hillshade",
+        type: "hillshade",
+        source: "mapbox-dem",
+        paint: {
+            "hillshade-exaggeration": 1,
+            "hillshade-highlight-color": "red"
+        },
+    }
+
+
+}
+
 export const ThreeMap = () => {
     const mapContainer = useRef()
 
@@ -22,16 +45,10 @@ export const ThreeMap = () => {
                 tileSize: 512,
                 maxZoom: 16,
             })
-            map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 })
-            map.addLayer({
-                id: "sky",
-                type: "sky",
-                paint: {
-                    "sky-type": "atmosphere",
-                    "sky-atmosphere-sun": [0.0, 90.0],
-                    "sky-atmosphere-sun-intensity": 15,
-                },
-            })
+            map.setTerrain({source: "mapbox-dem", exaggeration: 1.5})
+            map.addLayer(
+                layers.hillshade, 'waterway-river-canal-shadow'
+            )
         })
     }, [])
 
