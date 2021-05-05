@@ -47,7 +47,7 @@ export const ThreeMap = () => {
             })
             map.setTerrain({source: "mapbox-dem", exaggeration: 1.5})
             map.addLayer(
-                layers.hillshade, 'waterway-river-canal-shadow'
+                layers.sky
             )
         })
     }, [])
