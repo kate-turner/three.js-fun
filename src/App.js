@@ -1,6 +1,6 @@
 import React from "react";
-import {Canvas} from "react-three-fiber"
-import Box from "./components/Box.js";
+// import {Canvas} from "react-three-fiber"
+// import Box from "./components/Box.js";
 import {ThreeMap} from "./components/3dMap";
 
 
