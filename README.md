@@ -1,1 +1,1 @@
-3d fun... more to come!
+3d fun... more to come! Practice with three.js
